@@ -1,2 +1,2 @@
-# projects
+# Projects
 Examples of projects
