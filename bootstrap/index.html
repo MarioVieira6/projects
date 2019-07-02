@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Minha página</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- Menu -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand logotipo">
+                    <img src="img/watchguru.png" alt="Watch Guru">
+                </a>
+            </div>
+            <div id="menu" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="">Ordens de Serviço</a></li>
+                    <li><a href="">Clientes</a></li>
+                    <li><a href="">Funcionários</a></li>
+                    <li><a href="">Serviços</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Minha Conta
+                            <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu perfil">
+                            <div class="col-sm-4 hidden-xs">
+                                <img class="img-responsive img-rounded"
+                                    src="https://api.adorable.io/avatars/100/watchguru.png" alt="">
+                            </div>
+                            <ul class="col-sm-8 list-unstyled">
+                                <li>Fulano de Tal</li>
+                                <li><a href="">Alterar Perfil</a></li>
+                                <li><a href="">Sair</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+            <li><a href="">Início</a></li>
+            <li><a href="">Ordens de Serviço</a></li>
+            <li class="active">Pesquisa</li>
+        </ol>
+
+        <div class="row header">
+            <div class="col-xs-12 col-md-6">
+                <h1>Ordens de Serviço</h1>
+            </div>
+            <div class="col-xs-12 col-md-4 col-md-offset-2 search">
+                <!-- Input Group (Botao com icone) -->
+                <div class="input-group">
+                    <input type="text" name="busca" class="form-control" placeholder="Pesquisar por nome do clinete">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Responsive -->
+        <div class="table-responsive">
+            <table class="os-data table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Cod.</th>
+                        <th>Data</th>
+                        <th>Cliente</th>
+                        <th>Valor</th>
+                        <th>Funcionário</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>51351</td>
+                        <td>05/05/2015</td>
+                        <td>Gandalf Cinzento</td>
+                        <td>800,00</td>
+                        <td>Jorge</td>
+                        <td><span class="label label-primary">Em Andamento</span></td>
+                        <td class="text-center">
+                            <a href="" data-toggle="tooltip" title="Finalizar"><span
+                                    class="glyphicon glyphicon-ok text-success"></span></a>
+                            <a href="" data-toggle="tooltip" title="Editar"><span
+                                    class="glyphicon glyphicon-pencil text-warning"></span></a>
+                            <a href="" data-toggle="tooltip" title="Excluir"><span
+                                    class="glyphicon glyphicon-trash text-danger"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>51351</td>
+                        <td>05/05/2015</td>
+                        <td>Gandalf Cinzento</td>
+                        <td>800,00</td>
+                        <td>Jorge</td>
+                        <td><span class="label label-default">Em Andamento</span></td>
+                        <td class="text-center">
+                            <a href="" data-toggle="tooltip" title="Finalizar"><span
+                                    class="glyphicon glyphicon-ok text-success"></span></a>
+                            <a href="" data-toggle="tooltip" title="Editar"><span
+                                    class="glyphicon glyphicon-pencil text-warning"></span></a>
+                            <a href="" data-toggle="tooltip" title="Excluir"><span
+                                    class="glyphicon glyphicon-trash text-danger"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>51351</td>
+                        <td>05/05/2015</td>
+                        <td>Gandalf Cinzento</td>
+                        <td>800,00</td>
+                        <td>Jorge</td>
+                        <td><span class="label label-warning">Em Andamento</span></td>
+                        <td class="text-center">
+                            <a href="" data-toggle="tooltip" title="Finalizar"><span
+                                    class="glyphicon glyphicon-ok text-success"></span></a>
+                            <a href="" data-toggle="tooltip" title="Editar"><span
+                                    class="glyphicon glyphicon-pencil text-warning"></span></a>
+                            <a href="" data-toggle="tooltip" title="Excluir"><span
+                                    class="glyphicon glyphicon-trash text-danger"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>51351</td>
+                        <td>05/05/2015</td>
+                        <td>Gandalf Cinzento</td>
+                        <td>800,00</td>
+                        <td>Jorge</td>
+                        <td><span class="label label-danger">Em Andamento</span></td>
+                        <td class="text-center">
+                            <a href="" data-toggle="tooltip" title="Finalizar"><span
+                                    class="glyphicon glyphicon-ok text-success"></span></a>
+                            <a href="" data-toggle="tooltip" title="Editar"><span
+                                    class="glyphicon glyphicon-pencil text-warning"></span></a>
+                            <a href="" data-toggle="tooltip" title="Excluir"><span
+                                    class="glyphicon glyphicon-trash text-danger"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>51351</td>
+                        <td>05/05/2015</td>
+                        <td>Gandalf Cinzento</td>
+                        <td>800,00</td>
+                        <td>Jorge</td>
+                        <td><span class="label label-success">Em Andamento</span></td>
+                        <td class="text-center">
+                            <a href="" data-toggle="tooltip" title="Finalizar"><span
+                                    class="glyphicon glyphicon-ok text-success"></span></a>
+                            <a href="" data-toggle="tooltip" title="Editar"><span
+                                    class="glyphicon glyphicon-pencil text-warning"></span></a>
+                            <a href="" data-toggle="tooltip" title="Excluir"><span
+                                    class="glyphicon glyphicon-trash text-danger"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paginacao -->
+        <footer class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#NovaOS">
+                    Nova Ordem de Serviço
+                </button>
+            </div>
+            <div class="col-sm-6 own-pagination text-right">
+                <ul class="pagination">
+                    <li class="disabled">
+                        <a href="">
+                            <span>
+                                <<</span> </a> </li> <li class="active"><a href=""><span>1</span></a></li>
+                    <li><a href=""><span>2</span></a></li>
+                    <li><a href=""><span>3</span></a></li>
+                    <li><a href=""><span>4</span></a></li>
+                    <li><a href=""><span>5</span></a></li>
+                    <li>
+                        <a href="">
+                            <span>>></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Carousel-->
+    <div class="container">
+        <h1>Carousel</h1>
+        <!-- data-ride com a classe slide define que o carousel deslizara as imagens para a direita -->
+        <!-- data-interval define o tempo em milesimos que os slides trocarao -->
+        <div id="Carrossel" class="carousel slide" data-ride="carousel" data-interval="1000">
+            <!-- Indicadores do carousel -->
+            <ol class="carousel-indicators">
+                <li data-target="#Carrossel" data-slide-to="0" class="active"></li>
+                <li data-target="#Carrossel" data-slide-to="1"></li>
+                <li data-target="#Carrossel" data-slide-to="2"></li>
+            </ol>
+            <!-- Conteudo do carousel -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="https://unsplash.it/1280/720?random">
+                    <!--Legenda -->
+                    <div class="carousel-caption">
+                        <h3>Slide Um</h3>
+                        <p>Este é um slide muito bonito!</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="https://unsplash.it/1279/720?random">
+                </div>
+                <div class="item">
+                    <img src="https://unsplash.it/1278/720?random">
+                </div>
+            </div>
+            <!-- NEXT and PREVIEW -->
+            <a class="left carousel-control" href="#Carrossel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#Carrossel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Tipografia -->
+    <div class="container">
+        <h1>Meu titulo</h1>
+        <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mim que vai caçá sua turmis! Copo furadis é
+            disculpa de bebadis, arcu quam euismod magna. Casamentiss faiz malandris se pirulitá. Suco de cevadiss, é um
+            leite divinis, qui tem lupuliz, matis, aguis e fermentis.</p>
+    </div>
+
+    <div class="container">
+        <h1>H1 Semibold (seminegrito) 36px <small>Texto Secundário</small></h1>
+        <h2>H2 Semibold (seminegrito) 30px <small>Texto Secundário</small></h2>
+        <h3>H3 Semibold (seminegrito) 24px <small>Texto Secundário</small></h3>
+        <h4>H4 Semibold (seminegrito) 18px <small>Texto Secundário</small></h4>
+        <h5>H5 Semibold (seminegrito) 14px <small>Texto Secundário</small></h5>
+        <h6>H6 Semibold (seminegrito) 12px <small>Texto Secundário</small></h6>
+    </div>
+
+    <div class="container">
+        <p class="h1">H1 Semibold (seminegrito) 36px <small>Texto Secundário</small></p>
+        <p class="h2">H2 Semibold (seminegrito) 30px <small>Texto Secundário</small></p>
+        <p class="h3">H3 Semibold (seminegrito) 24px <small>Texto Secundário</small></p>
+        <p class="h4">H4 Semibold (seminegrito) 18px <small>Texto Secundário</small></p>
+        <p class="h5">H5 Semibold (seminegrito) 14px <small>Texto Secundário</small></p>
+        <p class="h6">H6 Semibold (seminegrito) 12px <small>Texto Secundário</small></p>
+    </div>
+
+    <div class="container">
+        <h1>Texto</h1>
+
+        <h2>Tamanho Padrão</h2>
+
+        <p>Tenho 14px, a linha tem 20px</p>
+        <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mé, boa gente num é. Mauris nec dolor in eros
+            commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl. Copo furadis é disculpa de bebadis, arcu
+            quam euismod magna. Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis!</p>
+        <p>Quem num gosti di mum que vai caçá sua turmis! Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus
+            tristique interdum. Suco de cevadiss deixa as pessoas mais interessantiss. Quem manda na minha terra sou
+            Euzis!</p>
+
+        <p class="lead">Eu me sobresaio, tenho 21px</p>
+
+        <p>Tem pequeno também: <small>eu sou pequeno, só tenho 80% do tamanho do texto onde eu for colocado</small>.
+            <span class="small">Eu também.</span></p>
+
+        <h2>Estilização</h2>
+
+        <p>Temos textos em vários estilos: <mark>iluminado</mark>, <del>deletado</del>, <s>riscado</s>,
+            <ins>inserido</ins>, <u>sublinhado</u>, <strong>forte</strong>, <b>negrito</b>, <em>enfatizado</em>,
+            <i>itálico</i></p>
+
+        <h2>Indentação</h2>
+
+        <p class="text-left"><strong>Eu sou um texto alinhado à esquerda.</strong> Mussum Ipsum, cacilds vidis litro
+            abertis. Per aumento de cachacis, eu reclamis. Paisis, filhis, espiritis santis. Quem num gosti di mum que
+            vai caçá sua turmis! Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!</p>
+        <p class="text-right"><strong>Eu sou um texto alinhado à direita.</strong> Mussum Ipsum, cacilds vidis litro
+            abertis. Per aumento de cachacis, eu reclamis. Paisis, filhis, espiritis santis. Quem num gosti di mum que
+            vai caçá sua turmis! Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!</p>
+        <p class="text-center"><strong>Eu sou um texto alinhado ao centro.</strong> Mussum Ipsum, cacilds vidis litro
+            abertis. Per aumento de cachacis, eu reclamis. Paisis, filhis, espiritis santis. Quem num gosti di mum que
+            vai caçá sua turmis! Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!</p>
+        <p class="text-justify"><strong>Eu sou um texto justificado.</strong> Mussum Ipsum, cacilds vidis litro abertis.
+            Per aumento de cachacis, eu reclamis. Paisis, filhis, espiritis santis. Quem num gosti di mum que vai caçá
+            sua turmis! Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Per aumento de
+            cachacis, eu reclamis. Paisis, filhis, espiritis santis. Quem num gosti di mum que vai caçá sua turmis! Todo
+            mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!</p>
+
+        <p class="text-nowrap"><strong>Eu sou um texto sem quebra de linha.</strong> Mussum Ipsum, cacilds vidis litro
+            abertis. Per aumento de cachacis, eu reclamis. Paisis, filhis, espiritis santis. Quem num gosti di mum que
+            vai caçá sua turmis!</p>
+
+        <h2>Transformação</h2>
+
+        <p class="text-lowercase">Eu sou todo em MiNúScUlO</p>
+        <p class="text-uppercase">Eu sou todo em MaIúScUlO</p>
+        <p class="text-capitalize">minhas primeiras letras são em maiúsculo, o resto fica como eu deIxEi</p>
+
+        <h2>Abreviação</h2>
+
+        <p>A abreviação da palavra "abreviação" é <abbr title="abreviação">abbr</abbr></p>
+
+        <p><abbr title="Associação Brasileira Beneficente de Reabilitação" class="initialism">ABBR</abbr> também é a
+            abreviação de Associação Brasileira Beneficente de Reabilitação.</p>
+
+        <h2>Citação</h2>
+
+        <p>
+            Veja a seguinte citação:<br>
+            <blockquote>
+                <p>Citações nos ajudam a entender, inspirar, motivar, esclarecer e mostrar nossa opinião sobre o que
+                    está à nossa volta. É por isso que as pessoas e eu adoramos citações.</p>
+                <footer>Takyou Allah Cheikh Malaynine</footer>
+            </blockquote>
+        </p>
+
+        <p>
+            Ou essa:<br>
+            <blockquote class="blockquote-reverse">
+                <p>Citação: A arte de repetir erroneamente as palavras de outrem.</p>
+                <footer>Ambrose Bierce</footer>
+            </blockquote>
+        </p>
+
+        <h2>Listas</h2>
+
+        <h3>Desordenadas</h3>
+        <ul>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>
+                Nulla volutpat aliquam velit
+                <ul>
+                    <li>Phasellus iaculis neque</li>
+                    <li>Purus sodales ultricies</li>
+                    <li>Vestibulum laoreet porttitor sem</li>
+                    <li>Ac tristique libero volutpat at</li>
+                </ul>
+            </li>
+            <li>Faucibus porta lacus fringilla vel</li>
+            <li>Aenean sit amet erat nunc</li>
+            <li>Eget porttitor lorem</li>
+        </ul>
+
+        <h3>Ordenadas</h3>
+        <ol>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>Nulla volutpat aliquam velit</li>
+            <li>Faucibus porta lacus fringilla vel</li>
+            <li>Aenean sit amet erat nunc</li>
+            <li>Eget porttitor lorem</li>
+        </ol>
+
+        <h3>Sem estilo</h3>
+
+        <ul class="list-unstyled">
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>
+                Nulla volutpat aliquam velit
+                <ul class="list-unstyled">
+                    <li>Phasellus iaculis neque</li>
+                    <li>Purus sodales ultricies</li>
+                    <li>Vestibulum laoreet porttitor sem</li>
+                    <li>Ac tristique libero volutpat at</li>
+                </ul>
+            </li>
+            <li>Faucibus porta lacus fringilla vel</li>
+            <li>Aenean sit amet erat nunc</li>
+            <li>Eget porttitor lorem</li>
+        </ul>
+
+        <h3>Alinhadas</h3>
+
+        <ul class="list-inline">
+            <li>Lorem ipsum dolor</li>
+            <li>Consectetur adipiscing</li>
+            <li>Integer molestie</li>
+        </ul>
+
+        <h3>Descritivas</h3>
+
+        <dl>
+            <dt>Termo</dt>
+            <dd>Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu reclamis.</dd>
+
+            <dt>Segundo termo</dt>
+            <dd>Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu reclamis. Paisis, filhis,
+                espiritis santis. Quem num gosti di mum que vai caçá sua turmis! Quem num gosta di mé, boa gente num é.
+                Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.</dd>
+
+            <dt>Mais um</dt>
+            <dd>Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu reclamis.</dd>
+        </dl>
+
+        <h4>Descrição horizontal</h4>
+
+        <dl class="dl-horizontal">
+            <dt>Termo</dt>
+            <dd>Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu reclamis.</dd>
+
+            <dt>Segundo termo</dt>
+            <dd>Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu reclamis. Paisis, filhis,
+                espiritis santis. Quem num gosti di mum que vai caçá sua turmis! Quem num gosta di mé, boa gente num é.
+                Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.</dd>
+
+            <dt>Mais um termo longo demais para caber</dt>
+            <dd>Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu reclamis.</dd>
+        </dl>
+    </div>
+
+    <article>
+        <header>
+            <h1>Título de notícia super impactante!</h1>
+        </header>
+        <div class="conteudo">
+            <p>Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores não altera o pão duris Posuere libero
+                varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Quem num gosti di mum que vai
+                caçá sua turmis! Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+
+            <p>Sapien in monti palavris qui num significa nadis i pareci latim. Praesent malesuada urna nisi, quis
+                volutpat erat hendrerit non. Nam vulputate dapibus. Admodum accumsan disputationi eu sit. Vide electram
+                sadipscing et per. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget.</p>
+
+            <p>Leite de capivaris, leite de mula manquis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis
+                que eu levo! Paisis, filhis, espiritis santis. Diuretics paradis num copo é motivis de denguis.</p>
+
+            <p>Viva Forevis aptent taciti sociosqu ad litora torquent Mais vale um bebadis conhecidiss, que um
+                alcoolatra anonimiss. Quem num gosta di mé, boa gente num é. Per aumento de cachacis, eu reclamis.</p>
+
+            <p>Mé faiz elementum girarzis, nisi eros vermeio. Interagi no mé, cursus quis, vehicula ac nisi. Suco de
+                cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Manduma pindureta quium dia
+                nois paga.</p>
+
+            <p>Pra lá , depois divoltis porris, paradis. Mauris nec dolor in eros commodo tempor. Aenean aliquam
+                molestie leo, vitae iaculis nisl. in elementis mé pra quem é amistosis quis leo. undefined </p>
+
+            <p>Suco de cevadiss deixa as pessoas mais interessantiss. Nec orci ornare consequat. Praesent lacinia
+                ultrices consectetur. Sed non ipsum felis. Nullam volutpat risus nec leo commodo, ut interdum diam
+                laoreet. Sed non consequat odio. Si num tem leite então bota uma pinga aí cumpadi!</p>
+
+            <p>Ta deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.” Detraxit consequat et quo num tendi
+                nada. Delegadis gente finis, bibendum egestas augue arcu ut est. Si u mundo tá muito paradis? Toma um mé
+                que o mundo vai girarzis!</p>
+        </div>
+    </article>
+
+    <!-- Breakpoints
+    LG: >= 1200px
+    MD: >= 992px < 1200px
+    SM: >= 768px < 992px        |   |   |   |   |   |   |   |   |   |   |   |   |
+    XS: < 768px
+    -->
+
+    <div class="container">
+        <h1>Meu Título</h1>
+        <p>Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis!
+            Quem num gosta di mé, boa gente num é. Não sou faixa preta cumpadi, sou preto inteiris, inteiris.</p>
+
+        <!-- Paineis -->
+        <div class="row">
+            <div class="col-xs-6 col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Título do Painel</h3>
+                    </div>
+                    <div class="panel-body">
+                        Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo
+                        vai girarzis! Quem num gosta di mé, boa gente num é. Não sou faixa preta cumpadi, sou preto
+                        inteiris, inteiris.
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Título do Painel</h3>
+                    </div>
+                    <div class="panel-body">
+                        Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo
+                        vai girarzis! Quem num gosta di mé, boa gente num é. Não sou faixa preta cumpadi, sou preto
+                        inteiris, inteiris.
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Título do Painel</h3>
+                    </div>
+                    <div class="panel-body">
+                        Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo
+                        vai girarzis! Quem num gosta di mé, boa gente num é. Não sou faixa preta cumpadi, sou preto
+                        inteiris, inteiris.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Navegação por Abas</h1>
+
+        <div class="navegation-tabs">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active">
+                    <a href="#home" data-toggle="tab">Home</a>
+                </li>
+                <li>
+                    <a href="#profile" data-toggle="tab">Perfil</a>
+                </li>
+                <li>
+                    <a href="#message" data-toggle="tab">Mensagem</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo
+                    vai girarzis! Quem num gosta di mé, boa gente num é. Não sou faixa preta cumpadi, sou preto
+                    inteiris, inteiris.
+                </div>
+
+                <div id="profile" class="tab-pane fade in">
+                    Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+                    girarzis! Quem num gosta di mé, boa gente num é. Não sou faixa preta cumpadi, sou preto inteiris,
+                    inteiris.
+                </div>
+
+                <div id="message" class="tab-pane fade in">
+                    Ta deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.” Detraxit consequat et quo num
+                    tendi nada. Delegadis gente finis, bibendum egestas augue arcu ut est. Si u mundo tá muito paradis?
+                    Toma um mé que o mundo vai girarzis!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Usando o Collapse</h1>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#CollapseOne" data-toggle="collapse" data-parent="#accordion">CollapseOne</a>
+                    </h4>
+                </div>
+                <div id="CollapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            Ta deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.” Detraxit consequat et
+                            quo num tendi nada. Delegadis gente finis, bibendum egestas augue arcu ut est. Si u mundo tá
+                            muito paradis? Toma um mé que o mundo vai girarzis!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#CollapseTwo" data-toggle="collapse" data-parent="#accordion">CollapseTwo</a>
+                    </h4>
+                </div>
+                <div id="CollapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            Ta deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.” Detraxit consequat et
+                            quo num tendi nada. Delegadis gente finis, bibendum egestas augue arcu ut est. Si u mundo tá
+                            muito paradis? Toma um mé que o mundo vai girarzis!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#CollapseThree" data-toggle="collapse" data-parent="#accordion">CollapseThree</a>
+                    </h4>
+                </div>
+                <div id="CollapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            Ta deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.” Detraxit consequat et
+                            quo num tendi nada. Delegadis gente finis, bibendum egestas augue arcu ut est. Si u mundo tá
+                            muito paradis? Toma um mé que o mundo vai girarzis!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="modal fade" id="NovaOS">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" class="close">
+                        <span>&times;</span>
+                    </button>
+                    <h4 class="modal-title">Nova Ordem de Serviço</h4>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <!-- alert-success/alert-warning/alert-info -->
+                        <div class="alert alert-danger">
+                            <button type="button" data-dismiss="alert" class="close">
+                                <span>&times;</span>
+                            </button>
+                            <b>Ocorreu um erro!</b> Confira se você preencheu todos os campos.
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label>Código da OS</label>
+                                <p class="form-control-static">65151</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-5">
+                                <label class="control-label" for="Cliente">Cliente</label>
+                                <select id="Cliente" class="form-control">
+                                    <option value="">Selecione...</option>
+                                    <option value="1">Frodo Bolseiro</option>
+                                    <option value="2">Gandalf Cinzento</option>
+                                    <option value="3">Sauron de Mordor</option>
+                                </select>
+                            </div>
+                            <div class="form-group has-warning col-sm-7">
+                                <label class="control-label" for="Servicos">Serviços</label>
+                                <select id="Servicos" class="form-control">
+                                    <option value="">Selecione...</option>
+                                    <option value="1">Ajuste de Data/Hora</option>
+                                    <option value="2">Conserto de Engrenagem</option>
+                                    <option value="3">Troca de Bateria</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group has-error col-xs-12">
+                                <label class="control-label" for="Observacao">Observação</label>
+                                <textarea id="Observacao" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group has-success col-sm-4">
+                                <label class="control-label" for="Valor">Valor</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">R$</div>
+                                    <input type="text" name="valor" id="Valor" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label" for="Data">Data de Entrega</label>
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="text" name="Data" id="Data" class="form-control">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-danger">Limpar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.pt-BR.min.js"></script>
+    <script src="js/main.js"></script>
+    
+</body>
+
+</html>

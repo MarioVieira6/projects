@@ -1,0 +1,23 @@
+body {
+    min-height: 100vh; /* viewport height (%) */
+    background-color: #CCC;
+    background-image: url('https://unsplash.it/g/1500/800?radom'); /* URL de imagens aleatórias */
+}
+
+.login-form {
+    margin-top: 50vh /* coloca uma margem de 50% de acordo com o tamanho da viewport */;
+    padding: 20px 30px;
+    background-color: rgb(0, 0, 0, .9);
+    color: #FFF;
+
+    transform: translateY(-50%); /* Defini a centralizacao do elemento de acordo com o tamanho da viewport */
+}
+
+.login-form h1 {
+    margin: 0 0 5px;
+}
+
+.login-form h2 {
+    margin: 0 0 30px;
+    font-size: 1em;
+}
