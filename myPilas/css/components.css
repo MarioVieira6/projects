@@ -1,0 +1,291 @@
+/*-----------------------\*
+  PLANO
+\*-----------------------*/
+.plan {
+  position: relative;
+  border: 1px solid #95A4A5;
+  padding: 10px;
+  font-size: 1.4rem
+}
+
+.plan:last-of-type {
+  margin-right: 0;
+}
+
+.plan__header {
+  background-color: #95A4A5;
+  color: #FFF;
+  text-align: center;
+  line-height: 2.5;
+  margin: -10px -10px 0 -10px;
+  font-weight: normal;
+  font-size: 2em;
+}
+
+.plan__price {
+  text-align: center;
+  font-size: 2em;
+  margin: 20px 0;
+}
+
+.plan__feature {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 20px 0;
+  font-size: 1em;
+}
+
+.plan__footer {
+  text-align: center;
+}
+
+.plan--most--popular::after {
+  content: "MAIS POPULAR";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background-color: #C20303;
+  color: #FFF;
+  font-size: 0.7142em;
+  line-height: 2.5;
+  padding: 0 10px;
+}
+
+/*-----------------------\*
+  BOTÃO
+\*-----------------------*/
+.button {
+  display: inline-block;
+  background-color: #AAA;
+  color: #FFF;
+  padding: 0.8em 1.2em;
+  border: none;
+  font-size: 1em;
+  text-decoration: none;
+  line-height: normal;
+}
+
+.button:hover, .button:focus {
+  background-color: #BBB;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.button--sign-up, .button--login {
+  background-color: #127D00;
+}
+
+.button--sign-up:hover, .button--sign-up:focus,
+.button--login:hover, .button--login:focus {
+  background-color: #0E6400;
+}
+
+.button--main {
+  border-radius: 10px;
+  background-color: #004B86;
+}
+
+.button--main:hover, .button--main:focus {
+  background-color: #003B6A;
+}
+
+/*-----------------------\*
+  CHAMADA
+\*-----------------------*/
+.screen {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .screen {
+    padding: 0 10% 0 10%;
+    font-size: 2.2rem;
+  }
+}
+
+.screen__title {
+  margin: 0;
+  color: #FFF;
+  font-size: 3.375em;
+  line-height: 0.9;
+  text-shadow: 1px 1px #313131;
+}
+
+.screen__subtitle {
+  margin: 60px 0;
+  color: #FFF;
+  font-size: 1em;
+}
+
+.screen__action {
+  font-size: 1em;
+}
+
+/*-----------------------\*
+  DEPOIMENTO
+\*-----------------------*/
+.testimony {
+  font-size: 2.2rem;
+}
+
+@media (min-width: 992px) {
+  .testimony {
+    padding: 0 10% 0 10%;
+    font-size: 2.8rem;
+  }
+}
+
+.testimony > blockquote {
+  position: relative;
+  margin: 0;
+  padding: 0 60px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.testimony > blockquote::before {
+  position: absolute;
+  top: -0.35em;
+  left: 0;
+  color: #CCC;
+  font-size: 8em;
+  content: "\201C";
+}
+
+.testimony__author {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.7272em;
+}
+
+.testimony__author > img {
+  border-radius: 50%;
+}
+
+.testimony__author > p {
+  margin-top: 10px;
+}
+
+/*-----------------------\*
+  NAVEGAÇÃO
+\*-----------------------*/
+.navigation {
+
+}
+
+.navigation__register {
+  text-align: center;
+}
+
+.navigation__menu {
+  float: right;
+}
+
+/*-----------------------\*
+  BOTÃO-CHAVEADOR
+\*-----------------------*/
+.button-switch {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: none;
+  background-image: url("../img/bars.png");
+  outline: none;
+}
+
+@media (min-width: 992px) {
+  .button-switch {
+    display: none;
+  }
+}
+
+/*-----------------------\*
+  MENU
+\*-----------------------*/
+.menu {
+  margin: 0;
+  font-size: 1.4rem;
+  list-style: none;
+}
+
+@media (max-width: 991px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    width: 200px;
+    padding: 20px;
+    border-right: 1px solid #EEE;
+    background-color: #FBFBFB;
+  }
+
+  .menu--is-showing {
+    display: block;
+  }
+
+  .menu__item {
+    display: block;
+    line-height: 3;
+  }
+
+  .menu__item--button {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .menu__item {
+    display: inline-block;
+    padding-right: 20px;
+  }
+
+  .menu__item:last-of-type {
+    padding-right: 0px;
+  }
+}
+
+/*-----------------------\*
+  TITULO-FORMULÁRIO
+\*-----------------------*/
+.form-title {
+  margin: 0;
+  margin-bottom: 40px;
+
+  border-bottom: 1px solid #CCC;
+
+  font-size: 2.6rem;
+  font-weight: normal;
+  color: #004B86;
+}
+
+/*-----------------------\*
+  GRUPO-ENTRADA
+\*-----------------------*/
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group > label {
+  display: block;
+  font-weight: bold;
+}
+
+/*-----------------------\*
+  CAMPO
+\*-----------------------*/
+.field {
+  display: block;
+  width: 100%;
+  height: 2.8em;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  background-color: #fff;
+
+  font-size: 1.4rem;
+}

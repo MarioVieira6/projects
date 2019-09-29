@@ -1,0 +1,68 @@
+/*-----------------------\*
+  CABEÇALHO
+\*-----------------------*/
+.layout-header {
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #CCC;
+  background-color: #FFF;
+}
+
+.layout-header--home {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/*.layout-header img {
+  margin-top: 12px;
+}*/
+
+/*-----------------------\*
+  PLANOS
+\*-----------------------*/
+.layout-plans {
+  padding: 80px 0;
+}
+
+@media (max-width: 749px) {
+  .layout-plans .row > div:not(.last-column) {
+    margin-bottom: 40px;
+  }
+}
+
+/*-----------------------\*
+  CHAMADA
+\*-----------------------*/
+.layout-screen {
+  padding: 80px 0;
+  margin-top: 60px;
+  background-color: #7AB55C
+}
+
+/*-----------------------\*
+  DEPOIMENTO
+\*-----------------------*/
+.layout-testimony {
+  padding: 80px 0;
+  background-color: #E7E7E7;
+}
+
+/*-----------------------\*
+  RODAPÉ
+\*-----------------------*/
+.layout-footer {
+  padding: 40px 0;
+  background-color: #484848;
+  color: #FFF;
+  text-align: center;
+}
+
+/*-----------------------\*
+  register.html > FORMULÁRIO
+\*-----------------------*/
+.layout-register {
+  padding: 40px 0;
+}
