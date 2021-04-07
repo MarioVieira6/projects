@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!-- th:if renderiza o componente apenas se a condicao for satisfeita -->
+<!-- th:text para exibir um valor a partir de uma variavel adicionada no ModelAndView -->
+<!-- www.thymeleaf.org/doc para mais detalhes -->
+<div class="alert alert-success"
+	th:if="${!#strings.isEmpty(mensagem)}">
+	<span th:text="${mensagem}">Título salvo com sucesso!!!</span>
+</div>
+
+<!-- Recupera mensagens de erros do formulario de acordo com a configuracao do Bean Validation -->
+<!-- Caso nao existam mensagens configuradas no Bean Validation o Thymeleaf retorna as mensagens de erro padrao do Spring -->
+<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+	<div th:each="detailedError : ${#fields.detailedErrors()}">
+		<span th:text="${detailedError.message}"></span>
+	</div>
+</div>
+
+</html>

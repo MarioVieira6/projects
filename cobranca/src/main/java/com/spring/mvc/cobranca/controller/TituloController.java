@@ -8,10 +8,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.mvc.cobranca.model.StatusTitulo;
 import com.spring.mvc.cobranca.model.Titulo;
@@ -42,8 +45,14 @@ public class TituloController {
 	 * @return para pagina CadastroTitulo
 	 */
 	@RequestMapping("/novo")
-	public String novo() {
-		return "CadastroTitulo";
+	public ModelAndView novo() {
+		/*
+		 * Adiciona no objeto ModelAndView a pagina que sera retornada e os atributos
+		 * adicionados
+		 */
+		ModelAndView mv = new ModelAndView("CadastroTitulo");
+		mv.addObject(new Titulo());
+		return mv;
 	}
 
 	/**
@@ -51,22 +60,39 @@ public class TituloController {
 	 * conversao automatica dos campos da <i>view</i> para o objeto <b>Titulo</b>
 	 * atraves do atributo "name" do HTML.
 	 * 
+	 * <p>
+	 * 		<code>@Validated</code> => O Spring fica encarregado de validar os 
+	 * 		campos da entidade baseado nas validacoes do <b>Bean Validation</b>.
+	 * </p>
+	 * 
+	 * <p>
+	 * 		<code>Errors</code> => O Spring retorna os erros do formulario.
+	 * </p>
+	 * 
+	 * <p>
+	 * 		<code>RedirectAttributes</code> => Redireciona atributos apos o 
+	 * 		redirecionamento para uma url da pagina definida no <i>Controller</i>.
+	 * </p>
+	 * 
 	 * @param titulo Objeto retornado da <i>view</i>
 	 * @return para a pagina CadastroTitulo
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(Titulo titulo) {
-		titulos.save(titulo);
-
+	public String salvar(@Validated Titulo titulo, Errors errors, RedirectAttributes attributes) {		
 		/*
-		 * Adiciona no objeto ModelAndView a pagina que sera retornada e os atributos
-		 * adicionados
+		 * Valida se existe algum erro no formulario. Caso ocorra, segue com a validacao.
 		 */
-		ModelAndView mv = new ModelAndView("CadastroTitulo");
-		mv.addObject("mensagem", "Título salvo com sucesso!");
-		return mv;
+		if (errors.hasErrors()) {
+			return "CadastroTitulo"; // Retorna para a pagina de Cadastro de Titulos
+		}
+		
+		titulos.save(titulo);
+		
+		// Adiciona atributos apos o redirecionamento da pagina
+		attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
+		return "redirect:/titulos/novo"; // Novo redirecionamento para a url /titulos/novo
 	}
-	
+
 	/**
 	 * @return todos os titulos adicionados
 	 */
