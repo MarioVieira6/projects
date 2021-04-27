@@ -27,6 +27,11 @@
     		</div>
 
 			<div class="panel-body">
+				<!-- Campo utilizado para diferenciar registro novo de edicao -->
+				<!-- Se o codigo for novo, salva um novo registro -->
+				<!-- Se o codigo estiver preenchido, atualiza o registro -->
+				<input type="hidden" th:field="*{codigo}"/>
+				
 				<!-- th:field substitui o atributo "name" do HTML -->
 				<!-- *{field} transforma o campo em um atributo do objeto th:object -->
 				<div class="form-group" th:classappend="${#fields.hasErrors('descricao')} ? has-error">

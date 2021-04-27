@@ -50,7 +50,16 @@
 								th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}">
 							</span>
 						</td>
-						<td class="text-center"></td>
+						<td class="text-center">
+							<!-- th:href -> Permite acessar uma URL passando parametros de forma dinamica -->
+							<!-- {codigo} -> Nome definido para a variavel que ira receber o parametro desejado -->
+							<!-- (codigo=${titulo.codigo}) -> [codigo=] -->
+							<!-- @{/titulos/{codigo}(codigo=${titulo.codigo})} recupera o titulo selecionado e 
+								atualiza a URL com o codigo do titulo -->
+							<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+						</td>
 					</tr>
 					<tr>
 						<!-- #lists.isEmpty -> Expressao que verifica se a lista esta vazia -->						

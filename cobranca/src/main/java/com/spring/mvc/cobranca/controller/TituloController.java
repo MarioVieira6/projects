@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,6 +32,8 @@ import com.spring.mvc.cobranca.repository.Titulos;
 @RequestMapping("/titulos")
 public class TituloController {
 
+	private static final String CADASTRO_VIEW = "CadastroTitulo";
+
 	/**
 	 * <b>Autowired</b> faz a inicializacao do objeto.
 	 */
@@ -50,7 +53,7 @@ public class TituloController {
 		 * Adiciona no objeto ModelAndView a pagina que sera retornada e os atributos
 		 * adicionados
 		 */
-		ModelAndView mv = new ModelAndView("CadastroTitulo");
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(new Titulo());
 		return mv;
 	}
@@ -83,7 +86,7 @@ public class TituloController {
 		 * Valida se existe algum erro no formulario. Caso ocorra, segue com a validacao.
 		 */
 		if (errors.hasErrors()) {
-			return "CadastroTitulo"; // Retorna para a pagina de Cadastro de Titulos
+			return CADASTRO_VIEW; // Retorna para a pagina de Cadastro de Titulos
 		}
 		
 		titulos.save(titulo);
@@ -101,6 +104,27 @@ public class TituloController {
 		List<Titulo> todosTitulos = titulos.findAll();
 		ModelAndView mv = new ModelAndView("PesquisaTitulos");
 		mv.addObject("titulos", todosTitulos);
+		return mv;
+	}
+
+	/**
+	 * O parametro <b>{codigo}</b> indica que o valor esta vindo da URL.
+	 * O Spring acessa este parametro pelo @PathVariable e monta a URL de
+	 * acordo com o objeto acessado.
+	 * 
+	 * <p>
+	 * 		<code>@PathVariable</code> => O Spring fica encarregado de receber o parametro
+	 *		vindo da URL e converter o codigo recebido em uma entidade titulo, como se ja estivesse
+	 *		feito a consulta do registro no banco. Essa conversao funciona apenas com o JpaRepository.
+	 * </p>
+	 * 
+	 * @param titulo Objeto retornado da <i>view</i> com o valor do codigo retornado
+	 * @return para a pagina CadastroTitulo
+	 */
+	@RequestMapping("{codigo}")
+	public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) {
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW); 
+		mv.addObject(titulo);
 		return mv;
 	}
 
