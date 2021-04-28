@@ -108,9 +108,13 @@ public class TituloController {
 	}
 
 	/**
-	 * O parametro <b>{codigo}</b> indica que o valor esta vindo da URL.
-	 * O Spring acessa este parametro pelo @PathVariable e monta a URL de
-	 * acordo com o objeto acessado.
+	 * Metodo de edicao do titulo.
+	 * 
+	 * <p>
+	 * 		O parametro <b>{codigo}</b> indica que o valor esta vindo da URL.
+	 *	 	O Spring acessa este parametro pelo @PathVariable e monta a URL de
+	 *		acordo com o objeto acessado.
+	 * </p>
 	 * 
 	 * <p>
 	 * 		<code>@PathVariable</code> => O Spring fica encarregado de receber o parametro
@@ -121,11 +125,52 @@ public class TituloController {
 	 * @param titulo Objeto retornado da <i>view</i> com o valor do codigo retornado
 	 * @return para a pagina CadastroTitulo
 	 */
-	@RequestMapping("{codigo}")
+	@RequestMapping(value="{codigo}", method = RequestMethod.GET)
 	public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) {
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW); 
 		mv.addObject(titulo);
 		return mv;
+	}
+	
+	/**
+	 * Metodo de exclusao de titulo.
+	 * 
+	 * 	<p>
+	 * 		<code>RequestMethod.DELETE</code> => Para utiliza o verbo <i>DELETE</i> com o
+	 * 		<b>Thymeleaf</b> e necessario implementar o method <b>POST</b> no <i>action</i>
+	 * 		do elemento <i>form</i> e adicionar um elemento <i>hidden</i> da seguinte forma:
+	 * 		<code>
+	 * 			input type="hidden" name="_method" value="DELETE"
+	 * 		</code>
+	 * </p>
+	 * 
+	 * <p>
+	 * 		O parametro <b>{codigo}</b> indica que o valor esta vindo da URL.
+	 *	 	O Spring acessa este parametro pelo @PathVariable e monta a URL de
+	 *		acordo com o objeto acessado.
+	 * </p>
+	 * 
+	 * <p>
+	 * 		<code>RedirectAttributes</code> => Redireciona atributos apos o 
+	 * 		redirecionamento para uma url da pagina definida no <i>Controller</i>.
+	 * </p> 
+	 * 
+	 * <p>
+	 * 		<code>@PathVariable</code> => O Spring fica encarregado de receber o parametro
+	 *		vindo da URL e converter o codigo recebido em uma entidade titulo, como se ja estivesse
+	 *		feito a consulta do registro no banco. Essa conversao funciona apenas com o JpaRepository.
+	 * </p>
+	 * 
+	 * @param codigo Codigo do Titulo que sera excluido
+	 * @param attributes Atributos de redirecionamento.
+	 * @return para a pagina CadastroTitulo
+	 */
+	@RequestMapping(value="{codigo}", method = RequestMethod.POST)
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		titulos.deleteById(codigo);
+		
+		attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
+		return "redirect:/titulos";
 	}
 
 	/**

@@ -16,7 +16,8 @@
 	<!-- Mapeamento da pagina CadastroTitulo com o TituloController -->
 	<!-- O Metodo POST procurando por um metodo do tipo POST no TituloController -->
 	<form class="form-horizontal" method="POST" action="/titulos" th:object="${titulo}">
-		<div layout:insert="Mensagem"></div>		
+		<div layout:insert="MensagemGeral"></div>
+    	<div layout:insert="MensagemErro"></div>
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
