@@ -15,7 +15,7 @@
 <section layout:fragment="conteudo">
 	<!-- Mapeamento da pagina CadastroTitulo com o TituloController -->
 	<!-- O Metodo POST procurando por um metodo do tipo POST no TituloController -->
-	<form class="form-horizontal" method="POST" action="/titulos" th:object="${titulo}">
+	<form class="form-horizontal" method="POST" th:action="@{/titulos}" th:object="${titulo}">
 		<div layout:insert="MensagemGeral"></div>
     	<div layout:insert="MensagemErro"></div>
 
@@ -23,7 +23,7 @@
 			<div class="panel-heading">
     			<div class="clearfix">
 	   				<h1 class="panel-title aw-titulo-panel">Novo título</h1>
-	   				<a class="btn btn-link aw-link-panel" href="/titulos">Voltar para pesquisa</a>
+	   				<a class="btn btn-link aw-link-panel" th:href="@{/titulos}">Voltar para pesquisa</a>
 	   			</div>
     		</div>
 
@@ -48,15 +48,19 @@
 						de vencimento</label>
 					<div class="col-sm-2">
 						<!-- O atributo "name" define o atributo que sera preenchido do objeto Titulo -->
+						<!-- Para mais detalhes dos atributos do datepicker acesse: https://bootstrap-datepicker.readthedocs.io/en/latest/options.html -->
 						<input type="text" class="form-control" id="dataVencimento"
-							 th:field="*{dataVencimento}" />
+							 th:field="*{dataVencimento}" data-provide="datepicker" data-date-format="dd/mm/yyyy"
+							 data-date-language="pt-BR" data-date-autoclose="true" data-date-today-highlight="true"
+							 data-date-orientation="bottom"/>
 					</div>
 				</div>
 				<div class="form-group" th:classappend="${#fields.hasErrors('valor')} ? has-error">
 					<label for="valor" class="col-sm-2 control-label">Valor</label>
 					<div class="col-sm-2">
 						<!-- O atributo "name" define o atributo que sera preenchido do objeto Titulo -->
-						<input type="text" class="form-control" id="valor" th:field="*{valor}" />
+						<!-- js-currency nao existe, e apenas uma classe de marcacao para indicar que o componente pode estar sendo acessado por um javascript -->
+						<input type="text" class="form-control js-currency" id="valor" th:field="*{valor}" />
 					</div>
 				</div>
 				<div class="form-group">
@@ -66,7 +70,7 @@
 						<!-- th:each para iteracao de uma colection -->
 						<!-- th:value para exibir um valor a partir de uma variavel criada no proprio th:each -->
 						<!-- th:text para exibir um valor a partir de uma variavel adicionada no ModelAndView -->
-						<select class="form-control" name="status">
+						<select class="form-control" th:field="*{status}">
 							<option th:each="status : ${todosStatusTitulo}"
 								th:value="${status}" th:text="${status.descricao}"></option>
 						</select>

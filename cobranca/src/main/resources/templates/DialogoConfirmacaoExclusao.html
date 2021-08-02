@@ -8,7 +8,7 @@
 <!-- data-backdrop="static" -> Impede que o modal feche ao clicar fora do modal -->
 <div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" data-keyboard="false" data-backdrop="static">
 	<div class="modal-dialog">
-		<form th:attr="data-url-base='/titulos'" method="POST">
+		<form th:action="@{/titulos}" method="POST">
             <!-- O Spring consegue identificar o tipo de metodo mapeando o tipo de metodo em um input -->
 			<input type="hidden" name="_method" value="DELETE"/>
 			

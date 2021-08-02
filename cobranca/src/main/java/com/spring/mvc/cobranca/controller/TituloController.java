@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.mvc.cobranca.model.StatusTitulo;
 import com.spring.mvc.cobranca.model.Titulo;
-import com.spring.mvc.cobranca.repository.Titulos;
+import com.spring.mvc.cobranca.repository.filter.TituloFilter;
+import com.spring.mvc.cobranca.service.CadastroTituloService;
 
 /**
  * @author dev
@@ -35,10 +37,10 @@ public class TituloController {
 	private static final String CADASTRO_VIEW = "CadastroTitulo";
 
 	/**
-	 * <b>Autowired</b> faz a inicializacao do objeto.
+	 * Servico de cadastro de titulo.
 	 */
 	@Autowired
-	private Titulos titulos;
+	private CadastroTituloService cadastroTituloService;
 
 	/**
 	 * Para que o endpoint identifique a pagina <b>HTML</b>, o metodo precisa
@@ -89,19 +91,29 @@ public class TituloController {
 			return CADASTRO_VIEW; // Retorna para a pagina de Cadastro de Titulos
 		}
 		
-		titulos.save(titulo);
-		
-		// Adiciona atributos apos o redirecionamento da pagina
-		attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
-		return "redirect:/titulos/novo"; // Novo redirecionamento para a url /titulos/novo
+		try {			
+			cadastroTituloService.salvar(titulo);
+			
+			// Adiciona atributos apos o redirecionamento da pagina
+			attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
+			return "redirect:/titulos/novo"; // Novo redirecionamento para a url /titulos/novo
+		} catch (IllegalArgumentException e) { // Validacao de dados invalidos
+			errors.rejectValue("dataVencimento", null, e.getMessage());
+		}
+		return CADASTRO_VIEW;
 	}
 
 	/**
-	 * @return todos os titulos adicionados
+	 * <p>
+	 * 		<code>@ModelAttribute</code> => O Spring inicializa o objeto.
+	 * </p>
+	 * 
+	 * @return todos os titulos adicionados de acordo com o filtro
 	 */
 	@RequestMapping
-	public ModelAndView pesquisar() {
-		List<Titulo> todosTitulos = titulos.findAll();
+	public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
+		List<Titulo> todosTitulos = cadastroTituloService.filtrar(filtro);
+		
 		ModelAndView mv = new ModelAndView("PesquisaTitulos");
 		mv.addObject("titulos", todosTitulos);
 		return mv;
@@ -167,10 +179,47 @@ public class TituloController {
 	 */
 	@RequestMapping(value="{codigo}", method = RequestMethod.POST)
 	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
-		titulos.deleteById(codigo);
+		cadastroTituloService.excluir(codigo);
 		
 		attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
 		return "redirect:/titulos";
+	}
+	
+	/**
+	 * Metodo de atualizacao de status do titulo.
+	 * 
+	 * <p>
+	 * 		<code>RequestMethod.PUT</code> => Para utiliza o verbo <i>PUT</i> com o
+	 * 		<b>Thymeleaf</b> e necessario implementar o method <b>POST</b> no <i>action</i>
+	 * 		do elemento <i>form</i> e adicionar um elemento <i>hidden</i> da seguinte forma:
+	 * 		<code>
+	 * 			input type="hidden" name="_method" value="PUT"
+	 * 		</code>
+	 * </p>
+	 * 
+	 * <p>
+	 * 		O parametro <b>{codigo}</b> indica que o valor esta vindo da URL.
+	 *	 	O Spring acessa este parametro pelo @PathVariable e monta a URL de
+	 *		acordo com o objeto acessado.
+	 * </p>
+	 * 
+	 * <p>
+	 * 		<code>@ResponseBody</code> => O Spring identifica que não e necessario retornar uma view e
+	 * 		sim, apenas os dados retornados sem alterar o estado da pagina.
+	 * </p>
+	 * 
+	 * <p>
+	 * 		<code>@PathVariable</code> => O Spring fica encarregado de receber o parametro
+	 *		vindo da URL e converter o codigo recebido em uma entidade titulo, como se ja estivesse
+	 *		feito a consulta do registro no banco. Essa conversao funciona apenas com o JpaRepository.
+	 * </p>
+	 * 
+	 * @param codigo Codigo do Titulo que sera atualizado
+	 * @return resposta da requisicao
+	 */
+	@RequestMapping(value = "/{codigo}/receber", method = RequestMethod.PUT)
+	public @ResponseBody String receber(@PathVariable Long codigo) {
+		return cadastroTituloService.receber(codigo);
 	}
 
 	/**
